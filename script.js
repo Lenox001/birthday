@@ -3,7 +3,12 @@ const birthdayMessageEl = document.getElementById("birthdayMessage");
 const countdownTitleEl = document.querySelector("h1"); // Selecting the title element
 
 // Set the actual birthday date (November 2nd)
-const birthday = new Date(new Date().getFullYear(), 10, 2); // November 2nd
+// Check if the date has passed, if so, set it to next year
+const now = new Date();
+let birthday = new Date(now.getFullYear(), 10, 2); // November 2nd this year
+if (now > birthday) {
+  birthday = new Date(now.getFullYear() + 1, 10, 2); // November 2nd next year
+}
 
 function updateCountdown() {
   const now = new Date();
